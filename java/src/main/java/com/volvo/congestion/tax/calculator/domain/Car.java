@@ -1,7 +1,4 @@
-package congestion.calculator;
-
-import java.util.*;
-import java.text.*;
+package com.volvo.congestion.tax.calculator.domain;
 
 public class Car implements Vehicle {
 

@@ -1,11 +1,11 @@
-package congestion.calculator;
+package com.volvo.congestion.tax.calculator.service;
+
+import com.volvo.congestion.tax.calculator.domain.Vehicle;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.*;
-import java.text.*;
 
 public class CongestionTaxCalculator {
 
