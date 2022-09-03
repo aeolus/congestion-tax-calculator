@@ -1,6 +1,7 @@
 package com.volvo.congestion.tax.calculator.service;
 
 import com.volvo.congestion.tax.calculator.domain.Vehicle;
+import com.volvo.congestion.tax.calculator.domain.VehicleTypes;
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
 
@@ -14,19 +15,22 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class CongestionTaxCalculator {
 
-    private final static List<String> TOLL_FREE_VEHICLE_TYPES = List.of(
-            "Motorcycle",
-            "Tractor",
-            "Emergency",
-            "Diplomat",
-            "Foreign",
-            "Military");
+    private final static List<VehicleTypes> TOLL_FREE_VEHICLE_TYPES = List.of(
+            VehicleTypes.MOTORCYCLE,
+            VehicleTypes.TRACTOR,
+            VehicleTypes.EMERGENCY,
+            VehicleTypes.DIPLOMAT,
+            VehicleTypes.FOREIGN,
+            VehicleTypes.MILITARY);
 
     private final static int DAILY_MAX_TAX = 60;
 
     private final static long ONE_HOUR_IN_MILLIE_SECONDS = 60 * 60 * 1000;
 
     public int getTax(@NonNull Vehicle vehicle, @NonNull List<LocalDateTime> dateTimes) {
+
+        // FIXME: debug logging
+        System.out.println("Received func call with type: " + vehicle.getVehicleType() + ", times: " + dateTimes);
 
         if (dateTimes.isEmpty()) throw new IllegalArgumentException(); // FIXME: return 0 instead if no time was given?
 
